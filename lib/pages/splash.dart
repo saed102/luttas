@@ -5,7 +5,7 @@ import 'package:luttas/pages/Home.dart';
 import 'package:luttas/pages/Register.dart';
 import 'package:luttas/pages/login.dart';
 
-import '../helper/Data.dart';
+import '../helper/consts.dart';
 
 
 class Splash extends StatefulWidget {

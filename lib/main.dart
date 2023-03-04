@@ -1,20 +1,14 @@
-import 'dart:io';
 
-import 'package:audio_waveforms/audio_waveforms.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:external_path/external_path.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:luttas/bloc/States.dart';
 import 'package:luttas/bloc/cuibt.dart';
 import 'package:luttas/helper/saveData.dart';
 import 'package:luttas/pages/splash.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:record/record.dart';
-
-import 'helper/Data.dart';
+import 'helper/consts.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,9 +31,19 @@ class MyApp extends StatelessWidget {
     return BlocProvider(create: (context) =>cubit()..getDataUser(Uid),
     child: BlocConsumer<cubit,MyState>(builder: (context, state) {
       return MaterialApp(
+        supportedLocales: const [
+          Locale('ar'),
+        ],
+        localizationsDelegates: const [
+          CountryLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+
+        ],
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
+
+
 
           primarySwatch: Colors.blue,
         ),
